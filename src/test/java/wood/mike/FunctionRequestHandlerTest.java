@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FunctionRequestHandlerTest {
+class FunctionRequestHandlerTest {
 
     private static FunctionRequestHandler handler;
 
@@ -25,12 +25,12 @@ public class FunctionRequestHandlerTest {
     }
 
     @Test
-    public void testHandler() {
+    void testHandler() {
         APIGatewayProxyRequestEvent request = new APIGatewayProxyRequestEvent();
         request.setHttpMethod("GET");
         request.setPath("/");
         APIGatewayProxyResponseEvent response = handler.execute(request);
         assertEquals(200, response.getStatusCode().intValue());
-        assertEquals("{\"message\":\"Hello World\"}", response.getBody());
+        assertEquals("{\"message\":\"Hey from AWS\"}", response.getBody());
     }
 }
